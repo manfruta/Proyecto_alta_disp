@@ -1,0 +1,92 @@
+<html>
+
+<head>
+  <title>DATOS</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+  <h1></h1>
+
+
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4">
+
+        <div class="card text-center">
+          <div class="card-header">
+            Temperatura actual en Santiago, Chile
+          </div>
+          <div class="card-body" id="temperature"></div>
+        </div>
+      </div>
+
+
+      <script>
+        fetch('http://localhost:3000/temp')
+          .then(response => response.json())
+          .then(data => {
+            const tempContainer = document.getElementById('temperature');
+            tempContainer.innerHTML = `${data.temp}C`;
+          });
+      </script>
+
+
+      <div class="col-md-4">
+        <div class="card-header">
+          Dolar actual Chile
+        </div>
+        <div class="card-body" id="dolares"></div>
+      </div>
+
+
+      <script>
+        fetch('http://localhost:3000/cash')
+          .then(response => response.json())
+          .then(data => {
+            const cashContainer = document.getElementById('dolares');
+            cashContainer.innerHTML = `$${data.dolar} USD`;
+          });
+      </script>
+
+      <div class="col-md-4">
+        <div class="card-header">
+          Uf actual en Chile
+        </div>
+        <div class="card-body" id="uff"></div>
+      </div>
+
+
+
+      <script>
+        fetch('http://localhost:3000/uf')
+          .then(response => response.json())
+          .then(data => {
+            const ufContainer = document.getElementById('uff');
+            ufContainer.innerHTML = `$${data.uf} clp`;
+          });
+      </script>
+    </div>
+  </div>
+
+
+
+    <div class="mx-auto" style="width: 200px;">
+      <button type="button" class="btn btn-dark"> <a href="https://www.tarkus.info/movil/crucigrama.php?nomm=Crucigrama&nom=17/12/2022&crucigrama=mi77fglOOXbbjqzJFE0ZsYEiTZmk4Dq2HofmIkgJOpQ=">CRUCIGRAMA</button>
+    </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js"
+    integrity="sha384-1lVfv5g5T8JGcwTjTbTQ2QjREUaMNNmGZfUOZM2aW6+jI6bOOPO5rYcJzppI5X0" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
